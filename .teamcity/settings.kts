@@ -49,4 +49,9 @@ object Build : BuildType({
         vcs {
         }
     }
+
+    dependencies {
+        snapshot(AbsoluteId("SpringPetclinic_BuildAndTest")) {
+        }
+    }
 })
