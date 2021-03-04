@@ -24,16 +24,10 @@ stages:
            deploy:
              steps:
                - task: CmdLine@2
-                 inputs:
-                  script: |
-                    echo Write your commands here
-      
-                    echo Hello world
+                 inputs: 
+                   script: |
+                      echo Write your commands here
 
-                     
-                      
-                        
-                    
       - job: iplisting
         steps:
           - checkout: none
