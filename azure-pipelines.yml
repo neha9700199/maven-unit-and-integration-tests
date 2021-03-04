@@ -14,11 +14,31 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+stages:
+  - stage: ipwhitelisting
+    jobs:
+      - job: iplisting
+        steps:
+          - checkout: none
+          - bash: |
+              AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
+              echo $AGENT_IP
+          - bash: |
+              curl GET -H "Authorization: bearer 17249d9294703d989fa4ccc88159b60ac755a79f" -X POST -d " { \"query\": \"query { viewer { login }}\" } " https://api.github.com/graphql
+      - job: testrepo
+        steps:
+            - task: Maven@3
+              inputs:
+                mavenPomFile: 'pom.xml'
+                publishJUnitResults: true
+                testResultsFiles: '**/surefire-reports/TEST-*.xml'
+                javaHomeOption: 'JDKVersion'
+                mavenVersionOption: 'Default'
+                mavenAuthenticateFeed: false
+                effectivePomSkip: false
+                sonarQubeRunAnalysis: false
+      
+      
+     
 
-steps:
-  - checkout: none
-  - bash: |
-      AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
-      echo $AGENT_IP
-  - bash: |
-      curl GET -H "Authorization: bearer 17249d9294703d989fa4ccc88159b60ac755a79f" -X POST -d " { \"query\": \"query { viewer { login }}\" } " https://api.github.com/graphql
+  
