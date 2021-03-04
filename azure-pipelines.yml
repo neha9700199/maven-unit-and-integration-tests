@@ -7,6 +7,7 @@ resources:
    - repository: myrepo
      endpoint: neha9700199
      name:  neha9700199/maven-unit-and-integration-tests
+     type: github
 
 trigger:
 - master
