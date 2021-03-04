@@ -17,6 +17,21 @@ pool:
 stages:
   - stage: ipwhitelisting
     jobs:
+      - deployment: approval
+        environment: dev-test
+        strategy:
+         runOnce:
+           deploy:
+             steps:
+               - task: CmdLine@1
+                 displayName: testing
+                 inputs:
+                   scripts: |
+                      echo "hello"
+                     
+                      
+                        
+                    
       - job: iplisting
         steps:
           - checkout: none
