@@ -29,6 +29,9 @@ stages:
         dependsOn: iplisting
         condition: Scceeded()
         steps:
+            - bash: |
+                AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
+                echo $AGENT_IP
             - task: Maven@3
               inputs:
                 mavenPomFile: 'pom.xml'
@@ -39,6 +42,7 @@ stages:
                 mavenAuthenticateFeed: false
                 effectivePomSkip: false
                 sonarQubeRunAnalysis: false
+            
       
       
      
