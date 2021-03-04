@@ -5,7 +5,7 @@
 resources:
   repositories:
    - repository: myrepo
-     endpoint: 'github connection 1'
+     endpoint: neha9700199
      name:  neha9700199/maven-unit-and-integration-tests
 
 trigger:
