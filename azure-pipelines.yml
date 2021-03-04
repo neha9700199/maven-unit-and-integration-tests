@@ -3,10 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 resources:
- repositories:
+  repositories:
    - repository: myrepo
      endpoint: 'github connection 1'
-     name:  neha9700199/maven-unit-and-integration-tests 
+     name:  neha9700199/maven-unit-and-integration-tests
+
 trigger:
 - master
 
