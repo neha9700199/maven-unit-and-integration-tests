@@ -23,11 +23,13 @@ stages:
          runOnce:
            deploy:
              steps:
-               - task: CmdLine@1
-                 displayName: testing
+               - task: CmdLine@2
                  inputs:
-                   scripts: |
-                      echo "hello"
+                  script: |
+                    echo Write your commands here
+      
+                    echo Hello world
+
                      
                       
                         
