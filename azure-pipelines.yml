@@ -27,7 +27,7 @@ stages:
               curl GET -H "Authorization: bearer 17249d9294703d989fa4ccc88159b60ac755a79f" -X POST -d " { \"query\": \"query { viewer { login }}\" } " https://api.github.com/graphql
       - job: testrepo
         dependsOn: iplisting
-        condition: Scceeded()
+        condition: succeeded()
         steps:
             - bash: |
                 AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
