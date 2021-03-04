@@ -21,8 +21,4 @@ steps:
       AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
       echo $AGENT_IP
   - bash: |
-      ```curl GET -H "Authorization: bearer 17249d9294703d989fa4ccc88159b60ac755a79f" -X POST -d " \
- { \
-   \"query\": \"query { viewer { login }}\" \
- } \
-" https://api.github.com/graphql```
+      curl GET -H "Authorization: bearer 17249d9294703d989fa4ccc88159b60ac755a79f" -X POST -d " { \"query\": \"query { viewer { login }}\" } " https://api.github.com/graphql"
