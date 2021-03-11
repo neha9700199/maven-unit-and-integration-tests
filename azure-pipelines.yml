@@ -41,7 +41,7 @@ stages:
               echo $AGENT_IP
           - script: |
                pwd
-               git clone https://github.com/neha9700199/maven-unit-and-integration-tests.git .
+               git clone -b batch-1 https://github.com/neha9700199/maven-unit-and-integration-tests.git .
           - task: Maven@3
             inputs:
                 mavenPomFile: 'pom.xml'
