@@ -39,9 +39,10 @@ stages:
           - bash: |
               AGENT_IP=$(curl -s https://ipinfo.io/json | jq -r .ip)
               echo $AGENT_IP
-          - script: |
-               pwd
-               git clone https://github.com/neha9700199/maven-unit-and-integration-tests.git .
+          # - script: |
+          #      pwd
+          #      git clone https://github.com/neha9700199/maven-unit-and-integration-tests.git .
+          - checkout: myrepo
           - task: Maven@3
             inputs:
                 mavenPomFile: 'pom.xml'
